@@ -5,13 +5,36 @@ body {
   margin-top: 90px;
 }
 
+label {
+  float: left
+}
+
+
+
+/* darn mode theme start*/
 .dark-mode {
   color: whitesmoke;
   background-color: #2C3E50;
 }
 
-label {
-  float: left
+.btn-dark-mode{
+  color: navy;
+  background-color: whitesmoke;
+}
+
+.jumbotron-dark {
+  background-color: #43576b;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0.3rem;
+}
+
+
+
+/*light mode theme start */
+.btn-light-mode{
+  color: whitesmoke;
+  background-color: navy;
 }
 
 .light-mode {
@@ -20,6 +43,8 @@ label {
 }
 
 
+
+/** end modes attributes for colors**/
 a:hover{
   color: goldenrod;
   text-decoration: none;
@@ -37,5 +62,8 @@ h4:hover {
 @media screen and (max-width: 500px){
   .display-3{
     font-size: 3em
+  }
+  .jumbotron-dark {
+    padding: 4rem 2rem;
   }
 }

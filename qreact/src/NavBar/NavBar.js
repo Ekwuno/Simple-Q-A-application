@@ -11,12 +11,12 @@ const NavBar = props => {
     };
 
     return (
-        <nav className='navbar navbar-dark bg-primary fixed-top'>
+        <nav className='navbar navbar-dark bg-primary fixed-top' id='nav'>
             <Link className='navbar-brand' to='/' > Q&App</Link>
             <NightMode />
             {
                 !auth0Client.isAuthenticated() &&
-                <button className="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
+                <button className="btn btn-light" onClick={auth0Client.signIn}>Sign In</button>
             }
             {
                 auth0Client.isAuthenticated() &&

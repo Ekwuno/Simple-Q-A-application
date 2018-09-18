@@ -36,6 +36,7 @@ class SubmitAnswer extends Component {
                         className="form-control"
                         placeholder="Share your answer."
                         value={this.state.answer}
+                        required
                     />
                 </div>
                 <button

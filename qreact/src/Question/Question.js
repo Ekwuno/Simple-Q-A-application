@@ -45,7 +45,7 @@ class Question extends Component {
 		return (
 			<div className="container">
 				<div className="row">
-					<div className="jumbotron col-12">
+					<div className="jumbotron col-12" id='jumb'>
 						<h1 className="display-3">{question.title}</h1>
 						<p className="lead">{question.description}</p>
 						<hr className="my-4" />
