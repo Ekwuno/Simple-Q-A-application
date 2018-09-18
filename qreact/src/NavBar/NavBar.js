@@ -1,6 +1,7 @@
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import auth0Client from '../Auth';
+import NightMode from '../NightMode'
 
 const NavBar = props => {
 
@@ -12,6 +13,7 @@ const NavBar = props => {
     return (
         <nav className='navbar navbar-dark bg-primary fixed-top'>
             <Link className='navbar-brand' to='/' > Q&App</Link>
+            <NightMode />
             {
                 !auth0Client.isAuthenticated() &&
                 <button className="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
