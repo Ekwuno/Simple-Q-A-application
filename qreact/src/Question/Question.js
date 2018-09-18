@@ -8,6 +8,7 @@ class Question extends Component {
 		super(props);
 		this.state = {
 			question: null,
+			user: null
 		};
 
 		this.submitAnswer = this.submitAnswer.bind(this);
@@ -28,14 +29,18 @@ class Question extends Component {
 	async submitAnswer(answer) {
 		await axios.post(`http://localhost:8081/answer/${this.state.question.id}`, {
 			answer,
-		}, {
+		},
+			{
 				headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
 			});
+		this.setState({
+			user: auth0Client.getProfile().name
+		})
 		await this.refreshQuestion();
 	}
 
 	render() {
-		const { question } = this.state;
+		const { question, user } = this.state;
 		if (question === null) return <p>Loading ...</p>;
 		return (
 			<div className="container">
@@ -48,7 +53,9 @@ class Question extends Component {
 						<p>Answers:</p>
 						{
 							question.answers.map((answer, idx) => (
-								<p className="lead" key={idx}>{answer.answer}</p>
+								<p className="lead" key={idx}>{answer.answer}
+									<p> {user} </p>
+								</p>
 							))
 						}
 					</div>
