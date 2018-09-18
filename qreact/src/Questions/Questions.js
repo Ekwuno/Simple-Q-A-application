@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Loader from './../Loader/loader.js'
 
 class Questions extends Component {
 	constructor(props) {
@@ -8,17 +9,21 @@ class Questions extends Component {
 
 		this.state = {
 			questions: null,
+			loading: false 
 		};
 	}
 
 	async componentDidMount() {
+		this.setState({ loading: true})
 		const questions = (await axios.get('http://localhost:8081/')).data;
 		this.setState({
 			questions,
+			loading: false
 		});
 	}
 
 	render() {
+		const {loading} = this.state
 		return (
 			<div className="container">
 				<div className="row">
@@ -31,8 +36,18 @@ class Questions extends Component {
 							</div>
 						</div>
 					</Link>
-					{this.state.questions === null && <p>Loading questions...</p>}
+					
+					{this.state.questions === null }
+					
+					
+					{/* <p>Loading questions...</p> */}
 					{/* <br /><br /><hr /> */}
+					{
+					loading &&
+					<div style={{position: 'relative', top: '51px', left: '310px'}}>
+						<Loader />
+					</div>
+				}
 					{
 						this.state.questions && this.state.questions.map(question => (
 							<div key={question.id} className="col-sm-12 col-md-4 col-lg-3">
