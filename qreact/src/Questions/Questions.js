@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Loader from './../Loader/loader.js'
 
+
 class Questions extends Component {
 	constructor(props) {
 		super(props);
@@ -42,7 +43,7 @@ class Questions extends Component {
 					
 					{/* <p>Loading questions...</p> */}
 					{/* <br /><br /><hr /> */}
-					
+
 					{
 					loading &&
 					<div style={{position: 'relative', top: '51px', left: '310px'}}>

@@ -19,6 +19,20 @@ a:hover{
 h4:hover {
   text-decoration: blue
 }
+.name{
+  left: 16.27%;
+  right: 67.2%;
+  top: 13.33%;
+  bottom: 71.85%;
+
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 20px;
+  font-size: 14px;
+  margin-top: 15px;
+  margin-left: 20px
+}
 
 @media screen and (max-width: 500px){
   .display-3{

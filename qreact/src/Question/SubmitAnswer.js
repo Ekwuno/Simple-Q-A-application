@@ -7,18 +7,21 @@ class SubmitAnswer extends Component {
         super(props);
         this.state = {
             answer: '',
+            user: null
         };
     }
 
     updateAnswer(value) {
         this.setState({
             answer: value,
+            user : auth0Client.getProfile().name 
         });
     }
 
     submit() {
-        this.props.submitAnswer(this.state.answer);
-
+        this.props.submitAnswer(this.state.answer, this.state.user);
+        // this.props.user(this.state.user)
+        
         this.setState({
             answer: '',
         });
@@ -30,12 +33,14 @@ class SubmitAnswer extends Component {
             <Fragment>
                 <div className="form-group text-center">
                     <label htmlFor="exampleInputEmail1">Answer:</label>
+                    <p className='name'>{auth0Client.getProfile().name}</p>
                     <input
                         type="text"
                         onChange={(e) => { this.updateAnswer(e.target.value) }}
                         className="form-control"
                         placeholder="Share your answer."
-                        value={this.state.answer}
+                        value={this.state.answer }
+                        
                     />
                 </div>
                 <button
@@ -43,6 +48,7 @@ class SubmitAnswer extends Component {
                     onClick={() => { this.submit() }}>
                     Submit
                 </button>
+                
                 <hr className="my-4" />
             </Fragment>
         )

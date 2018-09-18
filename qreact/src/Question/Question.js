@@ -8,6 +8,7 @@ class Question extends Component {
 		super(props);
 		this.state = {
 			question: null,
+			user: null
 		};
 
 		this.submitAnswer = this.submitAnswer.bind(this);
@@ -31,11 +32,14 @@ class Question extends Component {
 		}, {
 				headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
 			});
+			this.setState({
+				user: auth0Client.getProfile().name
+			})
 		await this.refreshQuestion();
 	}
 
 	render() {
-		const { question } = this.state;
+		const { question ,user} = this.state;
 		if (question === null) return <p>Loading ...</p>;
 		return (
 			<div className="container">
@@ -44,13 +48,19 @@ class Question extends Component {
 						<h1 className="display-3">{question.title}</h1>
 						<p className="lead">{question.description}</p>
 						<hr className="my-4" />
+						
 						<SubmitAnswer questionId={question.id} submitAnswer={this.submitAnswer} />
 						<p>Answers:</p>
+						
 						{
 							question.answers.map((answer, idx) => (
-								<p className="lead" key={idx}>{answer.answer}</p>
+								<div>
+									{user}
+									<p className="lead" key={idx}>{answer.answer}</p>
+								</div>
 							))
 						}
+						
 					</div>
 				</div>
 			</div>
