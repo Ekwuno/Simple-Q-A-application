@@ -7,8 +7,11 @@ body {
 
 .dark-mode {
   color: whitesmoke;
-  background-color: black;
+  background-color: #2C3E50;
+}
 
+label {
+  float: left
 }
 
 .light-mode {
