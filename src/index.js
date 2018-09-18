@@ -7,7 +7,7 @@ const morgan = require('morgan');
 
 //...other require statements
 const jwt = require('express-jwt');
-// const jwksRsa = require('jwks-rsa');
+const jwksRsa = require('jwks-rsa');
 
 
 // define the Express app
