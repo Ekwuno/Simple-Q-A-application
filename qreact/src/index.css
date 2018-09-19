@@ -10,17 +10,12 @@ label {
 }
 
 
-
 /* darn mode theme start*/
 .dark-mode {
   color: whitesmoke;
   background-color: #2C3E50;
 }
 
-.btn-dark-mode{
-  color: navy;
-  background-color: whitesmoke;
-}
 
 .jumbotron-dark {
   background-color: #43576b;
@@ -34,11 +29,11 @@ label {
 /*light mode theme start */
 .btn-light-mode{
   color: whitesmoke;
-  background-color: navy;
+  background-color: #2C3E50
 }
 
 .light-mode {
-  color: black;
+  color: #2C3E50;
   background-color: whitesmoke
 }
 
@@ -49,7 +44,7 @@ a:hover{
   color: goldenrod;
   text-decoration: none;
 }
-  
+
 .card-body {
   height: auto;
   overflow: hidden;
@@ -59,11 +54,36 @@ h4:hover {
   text-decoration: blue
 }
 
-@media screen and (max-width: 500px){
+
+.answer-post{
+  border: 1px solid darkgrey;
+  border-radius: 4px;
+  height: 100px;
+}
+
+.user-photo{
+  border: 1px solid darkgrey;
+  border-radius: 4px;
+  width: 100px;
+  height: 100%;
+  float: left;
+  margin-right: 10px;
+}
+
+.user-name{
+  
+}
+
+.display-3{
+  font-size: 3rem
+}
+
+@media screen and (min-width: 576px){
   .display-3{
-    font-size: 3em
+    font-size: 4.5rem
   }
-  .jumbotron-dark {
-    padding: 4rem 2rem;
-  }
+      .jumbotron-dark {
+        padding: 4rem 2rem;
+        /* margin: 4rem; */
+      }
 }

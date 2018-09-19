@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
+import Question from './Question/Question'
 
 class NightMode extends Component {
-    state = {
-
-    }
+    // state = {
+    //     curVal: 'jumbotron col-12'
+    // }
 
     body = () => {
         var body = document.getElementById('body');
@@ -12,22 +13,28 @@ class NightMode extends Component {
     }
 
     jumbotron = () => {
-        var jumbotron = document.getElementById('jumb');
-        var currentJumboMode = jumbotron.className;
-        jumbotron.className = currentJumboMode === 'jumbotron-dark col-12' ? 'jumbotron col-12' : 'jumbotron-dark col-12'
+        var jumbotron = document.getElementById('jumbotron');
+        // var nowVal = jumbotron.className;
+        return jumbotron.className === 'jumbotron-dark col-12' ? 'jumbotron col-12' : 'jumbotron-dark col-12'
+        // jumbotron.className=nowVal
+        // this.setState({
+        //     curVal: nowVal
+        // });
+        // // return jumbotron.className = this.state.curVal
     }
-    
-    button =() => {
-        var btnDarkMode = document.getElementsByTagName('button');
-        var currentBtnMode = btnDarkMode.className;
-        btnDarkMode.className = currentBtnMode === '' ? 'btn-light-mode' : 'navbar navbar-dark fixed-top btn-dark-mode'
-    }
+
+    // button = () => {
+    //     var btnDarkMode = document.getElementsByTagName('button');
+    //     var currentBtnMode = btnDarkMode.className;
+    //     btnDarkMode.className = currentBtnMode === 'btn btn-dark-mode' ? 'btn btn-light-mode' : 'btn btn-dark-mode'
+    // }
 
     handleMode = () => {
         this.body();
         this.jumbotron();
-        this.button();
     }
+    // this.button();
+    // Question.method.;
 
 
     render() {
